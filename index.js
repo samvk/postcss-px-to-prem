@@ -8,7 +8,7 @@ module.exports = postcss.plugin('postcss-px-to-prem', (opts = {}) => {
     opts = opts.assign({}, defaults, opts);
     opts.baseline = parseInt(opts.baseline, 10); // convert e.g. "16px" to 16
 
-    return function (css, result) {
+    return (css, result) => {
 
         css.walkRules((rule) => {
             const selector = rule.selector;
