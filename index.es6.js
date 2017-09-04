@@ -1,6 +1,6 @@
-var postcss = require('postcss');
+import postcss from 'postcss';
 
-module.exports = postcss.plugin('postcss-px-to-prem', (opts = {}) => {
+export default postcss.plugin('postcss-px-to-prem', (opts = {}) => {
     const defaults = {
         baseline: 16,
     };
