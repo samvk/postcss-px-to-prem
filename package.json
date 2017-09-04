@@ -1,7 +1,7 @@
 {
   "name": "postcss-px-to-prem",
   "version": "0.0.0",
-  "description": "PostCSS plugin that introduces new "prem" & "pem" units to convert pixel units to rem/em (e.g. "24prem" —> "1.5rem")",
+  "description": "PostCSS plugin that introduces new \"prem\" & \"pem\" units to convert pixel units to rem/em (e.g. \"24prem\" —> \"1.5rem\")",
   "keywords": [
     "postcss",
     "css",
