@@ -10,7 +10,7 @@
     "em",
     "px"
   ],
-  "author": "samvnkauffman-pc <samvnkauffman@gmail.com>",
+  "author": "Sam Kauffman <hello@samvk.com>",
   "license": "MIT",
   "repository": "samvk/postcss-px-to-prem",
   "bugs": {
