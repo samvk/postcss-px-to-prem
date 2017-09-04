@@ -11,12 +11,10 @@ export default postcss.plugin('postcss-px-to-prem', (opts = {}) => {
 
     return (css) => {
 
-        css.walkRules(({ selector }) => {
-            selector.replace(/(\.?\d+(?:\.\d+)?)(pr?em)/, (undefined, value, unit) => {
-                value /= baseline;
-                unit = unit.replace('p', '');
-                return value + unit;
-            });
+        css.replaceValues(/\.?\d+(\.\d+)?pr?em/g, { fast: 'em' }, (str) => {
+            const value = parseFloat(str, 10) / baseline; // get number (the value) and divided baseline
+            const unit = str.replace(/[^a-oq-z]/g, ''); // get letters (the unit) and remove 'p'
+            return value + unit;
         });
     };
 });

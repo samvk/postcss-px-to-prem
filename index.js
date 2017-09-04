@@ -12,10 +12,8 @@ var _extends = Object.assign || function (target) {
 
 var postcss = require('postcss');
 
-module.exports = postcss.plugin('postcss-px-to-prem', function () {
-    var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    var defaults = {
+module.exports = postcss.plugin('postcss-px-to-prem', (opts = {}) => {
+    const defaults = {
         baseline: 16
     };
 
@@ -23,16 +21,12 @@ module.exports = postcss.plugin('postcss-px-to-prem', function () {
 
     const baseline = parseInt(opts.baseline, 10);
 
-    return function (css) {
+    return css => {
 
-        css.walkRules(function (_ref) {
-            var selector = _ref.selector;
-
-            selector.replace(/(\.?\d+(?:\.\d+)?)(pr?em)/, function (undefined, value, unit) {
-                value /= baseline;
-                unit = unit.replace('p', '');
-                return value + unit;
-            });
+        css.replaceValues(/\.?\d+(\.\d+)?pr?em/g, { fast: 'em' }, str => {
+            const value = parseFloat(str, 10) / baseline; // get number (the value) and divided baseline
+            const unit = str.replace(/[^a-oq-z]/g, ''); // get letters (the unit) and remove 'p'
+            return value + unit;
         });
     };
 });
