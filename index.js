@@ -5,7 +5,8 @@ module.exports = postcss.plugin('postcss-px-to-prem', (opts = {}) => {
         baseline: 16,
     };
 
-    opts = opts.assign({}, defaults, opts);
+    opts = { ...defaults, ...opts };
+
     opts.baseline = parseInt(opts.baseline, 10); // convert e.g. "16px" to 16
 
     return (css) => {
