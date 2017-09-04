@@ -8,16 +8,13 @@ module.exports = postcss.plugin('postcss-px-to-prem', (opts = {}) => {
     opts = opts.assign({}, defaults, opts);
     opts.baseline = parseInt(opts.baseline, 10); // convert e.g. "16px" to 16
 
-    return (css, result) => {
+    return (css) => {
 
-        css.walkRules((rule) => {
-            const selector = rule.selector;
-
-            selector.replace('');
-
+        css.walkRules(({ selector }) => {
+            selector.replace(/(\.?\d+(?:\.\d+)?)(pr?em)/, (undefined, value, unit) => {
+                unit = unit.replace('p', '');
+                return value + unit;
+            });
         });
-
-        // Transform CSS AST here
-
     };
 });
