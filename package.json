@@ -1,0 +1,37 @@
+{
+  "name": "postcss-px-to-prem",
+  "version": "0.0.0",
+  "description": "PostCSS plugin that introduces new "prem" & "pem" units to convert pixel units to rem/em (e.g. "24prem" —> "1.5rem")",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "rem",
+    "em",
+    "px"
+  ],
+  "author": "samvnkauffman-pc <samvnkauffman@gmail.com>",
+  "license": "MIT",
+  "repository": "samvk/postcss-px-to-prem",
+  "bugs": {
+    "url": "https://github.com/samvk/postcss-px-to-prem/issues"
+  },
+  "homepage": "https://github.com/samvk/postcss-px-to-prem",
+  "dependencies": {
+    "postcss": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-postcss": "^2.0.2",
+    "jest": "^20.0.0"
+  },
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  }
+}
