@@ -20,7 +20,8 @@ module.exports = postcss.plugin('postcss-px-to-prem', function () {
     };
 
     opts = _extends({}, defaults, opts);
-    opts.baseline = parseInt(opts.baseline, 10); // convert e.g. "16px" to 16
+
+    const baseline = parseInt(opts.baseline, 10);
 
     return function (css) {
 
@@ -28,6 +29,7 @@ module.exports = postcss.plugin('postcss-px-to-prem', function () {
             var selector = _ref.selector;
 
             selector.replace(/(\.?\d+(?:\.\d+)?)(pr?em)/, function (undefined, value, unit) {
+                value /= baseline;
                 unit = unit.replace('p', '');
                 return value + unit;
             });
