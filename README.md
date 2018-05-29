@@ -9,7 +9,7 @@
 I created this for two simple reasons:
 
 1. Everyone on my team knows what `28px` roughly looks like. Not so much `1.75rem`.
-2. It how we measure things for the screens. More often than not I simply determine what I need in pixels, then convert it to `rem`.
+2. It's how we measure things for the screens. More often than not I simply determine what I need in pixels, then convert it to `rem`.
 
 #### Developer Notes
 
