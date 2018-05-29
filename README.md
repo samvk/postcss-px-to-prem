@@ -8,12 +8,12 @@
 
 I created this for two simple reasons:
 
-1. Everyone on my team knows what `28px` roughly looks like. Not so much `1.75rem`.
+1. Most sizing is done off the root baseline (`rem`s _always_ are) and we all know what `28px` roughly looks like. Not so much `1.75rem`.
 2. It's how we measure things for the screens. More often than not I simply determine what I need in pixels, then convert it to `rem`.
 
 #### Developer Notes
 
-Value still need to be adjusted based on font-size relatives, just like rems and ems. There is no dark magic being done here, it is simply allowing you to write rems and ems as pixel values off a baseline (default: 16), which most of us are more familiar with. No more rounding `rem`s to the thousandths place.
+There is no magic being done here, it is simply allowing you to write `em`s and `rem`s as pixel values with a root baseline (default: 16), which most of us are more familiar with — and doesn't require you to round to the thousandths place. But values still need to be adjusted based on font-size relatives: an `em` inside an element with twice the root font-size will still be twice as large.
 
 ## Example
 
@@ -40,7 +40,7 @@ Output:
 
 ```js
 'postcss-px-to-prem': {
-    baseline: 16, // default
+    rootValue: 16, // default
 }
 ```
 
