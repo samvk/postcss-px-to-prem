@@ -24,7 +24,7 @@ module.exports = postcss.plugin('postcss-px-to-prem', (opts = {}) => {
     return css => {
 
         css.replaceValues(/\.?\d+(\.\d+)?pr?em/g, { fast: 'em' }, str => {
-            const value = parseFloat(str, 10) / rootValue; // get number (the value) and divided rootValue
+            const value = (parseFloat(str, 10) / rootValue).toFixed(3); // get number (the value) and divided rootValue
             const unit = str.replace(/[^a-oq-z]/g, ''); // get letters (the unit) and remove 'p'
             return value + unit;
         });
